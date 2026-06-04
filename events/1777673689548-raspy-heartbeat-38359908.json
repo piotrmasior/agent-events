@@ -1,0 +1,25 @@
+{
+  "id": "38359908-77c7-41e5-9567-8697fa012551",
+  "type": "heartbeat",
+  "thread_id": "raspy-heartbeats",
+  "source": {
+    "agent": "raspy",
+    "machine": "pi",
+    "session_id": null
+  },
+  "created_at": "2026-05-01T22:14:49.548Z",
+  "payload": {
+    "capabilities": [
+      "slack-reply-as-raspy",
+      "memory-lookup",
+      "simple-qna",
+      "local-compute:pi",
+      "web-research"
+    ],
+    "adapter_version": "v5",
+    "load": {
+      "concurrent_tasks": 0,
+      "max_concurrent": 1
+    }
+  }
+}

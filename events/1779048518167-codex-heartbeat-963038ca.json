@@ -1,0 +1,24 @@
+{
+  "id": "963038ca-74eb-4a4b-aec9-ce0e1b16f706",
+  "type": "heartbeat",
+  "thread_id": "codex-heartbeats",
+  "source": {
+    "agent": "codex",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-05-17T20:08:38.167Z",
+  "payload": {
+    "capabilities": [
+      "code-review",
+      "long-context-analysis",
+      "planning",
+      "local-compute:macstudio"
+    ],
+    "adapter_version": "0.1.0",
+    "load": {
+      "concurrent_tasks": 0,
+      "max_concurrent": 2
+    }
+  }
+}

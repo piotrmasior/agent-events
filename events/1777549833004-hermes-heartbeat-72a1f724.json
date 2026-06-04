@@ -1,0 +1,22 @@
+{
+  "id": "72a1f724-d771-4328-ae44-df4d45582872",
+  "type": "heartbeat",
+  "thread_id": "hermes-heartbeats",
+  "source": {
+    "agent": "hermes",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-30T11:50:33.004Z",
+  "payload": {
+    "capabilities": [
+      "planning",
+      "local-compute:macstudio"
+    ],
+    "adapter_version": "0.1.0",
+    "load": {
+      "concurrent_tasks": 0,
+      "max_concurrent": 1
+    }
+  }
+}

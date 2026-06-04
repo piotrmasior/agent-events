@@ -1,0 +1,15 @@
+---
+id: fd663aac
+topic: agent/raspy
+tags: [test, autonomous]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-10T06:13:53Z
+acknowledged: true
+---
+TASK: Autonomous pickup test. Run 'df -h /' and publish the result as an enrichment on this event. Then ack this event. Do NOT wait for a Slack message — process this from your heartbeat event check.
+
+## Log
+- 2026-04-11T12:36:19Z [pi/claude-code] df-h-result
+- 2026-04-11T12:54:40Z [pi/claude-code] Filesystem      Size  Used Avail Use% Mounted on
+/dev/mmcblk0p2   29G   20G  7.5G  72% /

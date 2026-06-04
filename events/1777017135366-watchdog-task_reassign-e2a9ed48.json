@@ -1,0 +1,19 @@
+{
+  "id": "e2a9ed48-49da-41fc-b18f-d95ff932d6f6",
+  "type": "task.reassign",
+  "thread_id": "d06cdf4d-1d9e-4680-97a1-e13b9dc11965",
+  "source": {
+    "agent": "watchdog",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:52:15.366Z",
+  "payload": {
+    "original_task_id": "3ae59fd5-287b-4bed-849e-d95252699f32",
+    "reason": "no_eligible_claimer",
+    "prior_claimers": [
+      "none"
+    ],
+    "retry_count": 3
+  }
+}

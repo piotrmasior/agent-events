@@ -1,0 +1,17 @@
+---
+id: 1ff29b28
+topic: agent/raspy
+tags: [verify, activity-log, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-21T22:26:29Z
+acknowledged: true
+---
+Sanity check: read your updated AGENTS.md (specifically the new sections 'Activity log: log every Slack turn' and 'Honesty about tool failures'). Then prove the activity-log rule works by running this exact command via exec (single line, no chaining):
+
+bash ~/agent-activity/activity.sh log raspy 'turn: applied new AGENTS.md rules — exec-honesty + per-turn activity logging' --project raspberry-openclaw
+
+Then enrich this event with: (a) confirmation you read both new sections, (b) the verbatim output of the activity.sh log call, (c) the verbatim output of: bash ~/agent-activity/activity.sh recent 3
+
+## Log
+- 2026-04-21T22:27:04Z [pi/claude-code] Read both sections: (1) 'Activity log: log every Slack turn' — mandatory per-turn logging to activity.sh at the END of every user-facing turn; (2) 'Honesty about tool failures' — never fabricate results, report preflight rejections/SSH failures/execution errors verbatim. Proven the log rule works — command succeeded with output: '[warn] action doesn't use a known prefix. Consider: feat: fix: deploy: docs: cleanup: config: error: decision: review: merge:\nLogged: [raspy] turn: applied new AGENTS.md rules — exec-honesty + per-turn activity logging'. Recent 3 entries: [claude-code@macstudio] Bulk-cancelled 51 dashboard tasks + extended period dropdown (23:45:49), [claude-code@macstudio] Fixed knowledge-dashboard RAG/LLM offline display — direct LAN fetches replaced with /api/rag/* and /api/llm/models proxies (23:58:53), [raspy] turn: applied new AGENTS.md rules — exec-honesty + per-turn activity logging (00:26:58).

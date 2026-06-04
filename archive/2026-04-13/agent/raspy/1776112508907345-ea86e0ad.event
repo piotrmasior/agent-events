@@ -1,0 +1,14 @@
+---
+id: ea86e0ad
+topic: agent/raspy
+tags: [test, roundtrip, openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-13T20:35:08Z
+acknowledged: true
+---
+EVENT BUS TEST: Please reply with your OpenClaw version and the current timestamp. When done, ACK this event (and ideally enrich it first with your answer using eventbus.sh enrich <event-id> <msg>).
+
+## Log
+- 2026-04-13T20:36:03Z [pi/claude-code] OpenClaw 2026.4.12 (1c0672b) | Current timestamp: 2026-04-13 22:35:30 GMT+2
+- 2026-04-13T20:49:03Z [pi/claude-code] OpenClaw 2026.4.12 (1c0672b) | Current timestamp: 2026-04-13 22:48:00 GMT+2

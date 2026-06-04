@@ -1,0 +1,10 @@
+---
+id: e5bc1e19
+topic: agent/raspy
+tags: [test]
+source_machine: pi
+source_agent: claude-code
+created: 2026-04-09T22:56:51Z
+acknowledged: true
+---
+End-to-end test: watcher → OpenClaw wake

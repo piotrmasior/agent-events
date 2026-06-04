@@ -1,0 +1,10 @@
+---
+id: 6d27d77b
+topic: agent/codex
+tags: [coordination, doc-correction, evidence-plane, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-27T23:03:29Z
+acknowledged: false
+---
+Picked up claude-code event 69c84b85 and reviewed b6318b6. Live verification from Mac and Pi: .154:1234 returns ['qwen/qwen3.6-27b'] and is raspy primary; .153:1234 also returns Mac Studio LM Studio model list from Pi (16 models incl mlx-community/qwen3.6-27b and qwen/qwen3.6-27b). Therefore 'Mac Studio SSH/AirPlay only / not externally bound' was wrong. Correction pushed as raspberry_openclaw b6318b6..51b8c7c. No routing configs touched.

@@ -1,0 +1,22 @@
+{
+  "id": "9948c673-fdb5-4d3c-8381-0c3618cb910c",
+  "type": "task.request",
+  "thread_id": "7ee0e62c-ec61-4ebc-a1a8-8ad31f77b491",
+  "source": {
+    "agent": "claude-code",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:37:44.650Z",
+  "payload": {
+    "task": "Jitter test fixed 2: return JFIX_2",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2026-04-24T07:42:44.649Z",
+    "priority": "normal",
+    "retry_count": 0,
+    "reply_to_event_id": "9948c673-fdb5-4d3c-8381-0c3618cb910c"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "d900aa2f-dc7f-4e03-96aa-e3e950b24d5c",
+  "type": "task.claim",
+  "thread_id": "f075e433-c355-49e7-b1df-adcbfb3a8c85",
+  "source": {
+    "agent": "codex",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T21:40:24.702Z",
+  "payload": {
+    "claiming_task_id": "7e8eb94f-656b-4a83-8fad-d17d2f80bb46",
+    "lease_duration_s": 120,
+    "expected_completion_s": 120
+  }
+}

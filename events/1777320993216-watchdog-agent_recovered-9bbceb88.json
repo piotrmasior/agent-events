@@ -1,0 +1,15 @@
+{
+  "id": "9bbceb88-94cb-486b-abe8-70b618aa63a3",
+  "type": "agent.recovered",
+  "thread_id": "hermes-recovery",
+  "source": {
+    "agent": "watchdog",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-27T20:16:33.216Z",
+  "payload": {
+    "agent": "hermes",
+    "was_down_for_s": 0
+  }
+}

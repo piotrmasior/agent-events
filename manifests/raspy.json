@@ -1,0 +1,17 @@
+{
+  "agent": "raspy",
+  "machine": "pi",
+  "capabilities": [
+    "slack-reply-as-raspy",
+    "memory-lookup",
+    "simple-qna",
+    "local-compute:pi",
+    "web-research"
+  ],
+  "jitter_ms": 0,
+  "max_concurrent": 1,
+  "lease_duration_s_default": 90,
+  "heartbeat_interval_s": 60,
+  "adapter": "watchers/raspy-watcher.py",
+  "adapter_version_min": "v5"
+}

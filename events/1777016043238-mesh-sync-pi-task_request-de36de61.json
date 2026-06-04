@@ -1,0 +1,22 @@
+{
+  "id": "de36de61-c1cf-4256-b51c-8585ee291cb0",
+  "type": "task.request",
+  "thread_id": "54a01faf-8be7-46e4-8c1a-d7b94b07ac64",
+  "source": {
+    "agent": "mesh-sync-pi",
+    "machine": "pi",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:34:40.000Z",
+  "payload": {
+    "task": "pi->mac probe",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2030-01-01T00:00:00Z",
+    "priority": "low",
+    "retry_count": 0,
+    "reply_to_event_id": "de36de61-c1cf-4256-b51c-8585ee291cb0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agent": "claude-code",
+  "machine": "macstudio",
+  "capabilities": [
+    "planning",
+    "long-context-analysis",
+    "local-compute:macstudio",
+    "claude-present"
+  ],
+  "jitter_ms": 300,
+  "max_concurrent": 1,
+  "lease_duration_s_default": 300,
+  "heartbeat_interval_s": 60,
+  "adapter": "~/.claude/skills/event-bus/",
+  "adapter_version_min": "0.2.0",
+  "_note": "ad-hoc adapter; heartbeat only while a claude-code session is active"
+}

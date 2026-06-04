@@ -1,0 +1,15 @@
+{
+  "id": "d55e3013-8bbe-4723-a3d0-e4d5324559a5",
+  "type": "agent.recovered",
+  "thread_id": "raspy-recovery",
+  "source": {
+    "agent": "watchdog",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-06-03T15:39:27.044Z",
+  "payload": {
+    "agent": "raspy",
+    "was_down_for_s": 0
+  }
+}

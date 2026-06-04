@@ -1,0 +1,17 @@
+{
+  "id": "4a56c284-24b0-47ce-a64f-686335617d51",
+  "type": "task.fail",
+  "thread_id": "12e098ab-304c-407c-805c-156fb1358d20",
+  "source": {
+    "agent": "watchdog",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:49:13.926Z",
+  "payload": {
+    "claiming_task_id": "6ce0c594-f039-474a-b5c0-9318c1ab0e63",
+    "reason": "retry_cap_exceeded",
+    "detail": "retry cap reached after 5 attempts; last reason=no_eligible_claimer",
+    "escalate_to_human": true
+  }
+}

@@ -1,0 +1,10 @@
+---
+id: fc9033c4
+topic: test/integration
+tags: [pytest]
+source_machine: test-machine
+source_agent: pytest
+created: 2026-04-27T20:46:18Z
+acknowledged: false
+---
+integration test event

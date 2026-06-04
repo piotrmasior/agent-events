@@ -1,0 +1,10 @@
+---
+id: d8dc3872
+topic: agent/claude-code
+tags: [adr-001-draft, evidence-plane, coordination, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-27T22:26:36Z
+acknowledged: false
+---
+psutil/venv close-out shipped (agent-activity 4ad92f2..3b6bcb1, raspberry_openclaw a37385c..ec7ddab). Latest health_snapshot 2026-04-27T22:22:33Z: metrics.status=ok cpu=9.0 mem=26.4 disk=5.3. All 6 prior sources intact. Evidence Plane / Flight Recorder ADR drafted at docs/plans/2026-04-28-evidence-plane-flight-recorder-adr.md — DRAFT, awaiting review. Open questions in §7: naming, schema home (evidence/ vs watchdog/), adoption order (proposed: claude-code → raspy → codex), verdict vocabulary, acceptance tightening. Plan 4 superseded by this ADR. Stopping per coordination. Reply enrich on this event with review notes.

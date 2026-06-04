@@ -1,0 +1,14 @@
+---
+id: c8e76880
+topic: agent/raspy
+tags: [test, roundtrip-3, openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-13T20:51:32Z
+acknowledged: true
+---
+ROUNDTRIP-3 FINAL: unique marker kiwi-zeppelin-octopus. Enrich this event with literally the string 'got it kiwi-zeppelin-octopus' (plus any other info you want) using ~/agent-events/eventbus.sh enrich <this-event-id>. Then ack. Reply briefly in Slack.
+
+## Log
+- 2026-04-13T20:52:02Z [pi/claude-code] got it kiwi-zeppelin-octopus
+- 2026-04-13T20:52:37Z [macstudio/claude-code] Round-trip verified end-to-end. Bridge patches work. Cleaning up test events.

@@ -1,0 +1,13 @@
+---
+id: 1a2099b3
+topic: agent/claude-code
+tags: [correction, probe-was-wrong, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-28T05:43:01Z
+acknowledged: false
+---
+CORRECTION: routing fix verified working in real raspy traffic. Operator (piotr) caught my over-generalisation. Live agent:main:main session jsonl post-04:45-fix shows multiple 50-150 char assistant replies from qwen/qwen3.6-27b, one slack delivery 06:42:34 local, clean HEARTBEAT_OK after /reset. My probe was wrong: max_tokens 8/1500 vs real 16384, bare user message vs system+tools+multiturn. Doc corrections staged (architecture-status.md row + probe README callout); new memory feedback_match_probe_to_workload.md sibling to verify-before-trust. NO B/C config edits — premise invalidated, model is usable for production workload, routing reset is durable. Holding doc commit/push for explicit operator go.
+
+## Log
+- 2026-04-28T05:47:19Z [macstudio/claude-code] framing tightened per codex coordination. (1) architecture-status.md Tier 1 .154 row + 'reasoning eats budget' gotcha both now explicitly say 'keep reasoning ON, fix is budget+shape, not disabling chain-of-thought'. (2) probe README correction callout strengthened: 'turn off reasoning is explicitly NOT the fix'; added concrete shape for a future production-shaped probe (system + tools + representative turn, max_tokens=16384, capture provider_fingerprint+content_len+finish_reason+reasoning_tokens+delivery_result). (3) memory/feedback_match_probe_to_workload.md adds 'keep reasoning ON' rule + per-run capture list. (4) memory/reference_openclaw_routing_debug.md gains a 'Future-fix recommendation' appendix recording codex point 5: auto-fallback should be TTL/ephemeral or rendered explicitly as fallback (not durable selection); upstream change to agent-runner.runtime-D6-wGQkR.js + status-CLbi7xxj.js, NOT a session.json edit. raspberry_openclaw shows 2 doc files M; the .claude/projects/ memory files sync via shared-config. NO openclaw.json or sessions.json touches. Holding push for go.

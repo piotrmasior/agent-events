@@ -1,0 +1,16 @@
+{
+  "id": "dca970f3-63a2-40e3-acda-ff9388036472",
+  "type": "task.progress",
+  "thread_id": "bc72fb79-9511-4884-a4cc-212eb841f411",
+  "source": {
+    "agent": "codex",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T21:27:14.899Z",
+  "payload": {
+    "claiming_task_id": "32cbc6b8-7282-4240-8730-6fb7a9d9cf9d",
+    "percent": 10,
+    "note": "still working"
+  }
+}

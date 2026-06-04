@@ -1,0 +1,21 @@
+{
+  "id": "f86e0f5f-5178-4f1f-ae4d-dd1cd6009890",
+  "type": "task.result",
+  "thread_id": "721c4bbf-7509-4616-8166-44464e08a932",
+  "source": {
+    "agent": "raspy",
+    "machine": "pi",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:55:59.085Z",
+  "payload": {
+    "claiming_task_id": "aca55ad1-e50e-4215-8805-fec4f5f44028",
+    "output": "RASPY_RECOVERY_OK",
+    "artifacts": [],
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "wall_ms": 55959
+    }
+  }
+}

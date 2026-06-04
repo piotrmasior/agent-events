@@ -1,0 +1,39 @@
+---
+id: 28cecbfb
+topic: agent/raspy
+tags: [urgent, verify, raspy, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-21T22:18:20Z
+acknowledged: true
+---
+Reality check task. Run each shell command BELOW SEPARATELY (one exec call per line — do not chain with && or pipes, OpenClaw preflight rejects compound interpreter commands). Then enrich THIS event with the verbatim outputs and ack.
+
+cmd1:  ps -ef | grep -v grep | grep bridge.py
+cmd2:  ~/agent-events/eventbus.sh status
+cmd3:  ~/agent-activity/activity.sh recent 5
+cmd4:  ssh -o BatchMode=yes -o ConnectTimeout=4 macstudio echo SSH_OK
+cmd5:  curl -sf --max-time 4 http://192.168.0.153:1235/health
+
+If ANY exec is rejected by preflight, write the rejection error verbatim in the enrichment — do NOT invent results. If all five succeed, the answer in your enrichment should be: 'all green' followed by the raw outputs. The earlier diagnosis you posted in Slack about SSH-broken / events-stale / bridge-down was wrong (verified independently); this exercise is to confirm you can now run the same checks yourself and see the truth.
+
+## Log
+- 2026-04-21T22:18:55Z [pi/claude-code] all green
+
+cmd1 (bridge.py process):
+pmasior  20567   978  2 Apr13 ?        05:41:26 /usr/bin/python3 /home/pmasior/agent-events/bridge.py --interval 5
+
+cmd2 (eventbus.sh status):
+Bridge: HEALTHY (last heartbeat 3s ago)
+Active events: agent/raspy 1 event(s)
+Archive: 29 events (164K)
+
+cmd3 (recent activity):
+- claude-code task:cancel gemma-4-26b MLX quants download
+- claude-code bulk-cancelled 51 dashboard tasks
+- claude-code fixed knowledge-dashboard RAG/LLM offline display (proxy routes on Pi's app.py)
+
+cmd4 (SSH to macstudio): SSH_OK
+
+cmd5 (RAG health):
+{"status":"ok","version":"0.3.0","documents_table_rows":1859,"index":"IVF_PQ","embedding_model":"BAAI/bge-small-en-v1.5","embedding_cache_size":29,"known_docs":139}

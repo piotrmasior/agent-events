@@ -1,0 +1,10 @@
+---
+id: 5a128aad
+topic: agent/raspy
+tags: [agent-events]
+source_machine: pi
+source_agent: raspy
+created: 2026-04-09T23:06:14Z
+acknowledged: true
+---
+fix verification: agent-events integration complete

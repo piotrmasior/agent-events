@@ -1,0 +1,10 @@
+---
+id: 905606ab
+topic: agent/raspy
+tags: [test]
+source_machine: pi
+source_agent: claude-code
+created: 2026-04-09T22:55:57Z
+acknowledged: true
+---
+Test: watcher integration check

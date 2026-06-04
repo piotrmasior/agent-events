@@ -1,0 +1,16 @@
+{
+  "id": "e9fbd47a-d53b-4e2c-9474-c1a25f3416dc",
+  "type": "task.progress",
+  "thread_id": "721c4bbf-7509-4616-8166-44464e08a932",
+  "source": {
+    "agent": "raspy",
+    "machine": "pi",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:55:33.126Z",
+  "payload": {
+    "claiming_task_id": "aca55ad1-e50e-4215-8805-fec4f5f44028",
+    "percent": 20,
+    "note": "raspy working"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "40c491b0-bb83-4da6-9ed0-c0379a33499b",
+  "type": "task.request",
+  "thread_id": "d0b7f133-6340-479e-b2a2-7d1590e18677",
+  "source": {
+    "agent": "claude-code",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T21:40:00.000Z",
+  "payload": {
+    "task": "watchdog probe",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2030-01-01T00:00:00Z",
+    "priority": "normal",
+    "retry_count": 0,
+    "reply_to_event_id": "40c491b0-bb83-4da6-9ed0-c0379a33499b"
+  }
+}

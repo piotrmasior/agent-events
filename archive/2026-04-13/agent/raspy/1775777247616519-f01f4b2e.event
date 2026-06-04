@@ -1,0 +1,10 @@
+---
+id: f01f4b2e
+topic: agent/raspy
+tags: [disk-cleanup, task]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-09T23:27:27Z
+acknowledged: true
+---
+TASK: Execute disk cleanup based on your health check findings. Do ALL of these: 1) Add log rotation for guardian.log (logrotate or truncate cron, it grows ~200MB/day — most urgent). 2) Vacuum systemd journal: journalctl --vacuum-size=100M (save ~500MB). 3) Remove Kate's duplicate shzim_crawler: rm -rf ~/kate/shzim_crawler/ (save 1.4GB). 4) Clean old shzim_crawler/output/ runs older than 30 days. 5) After cleanup, report final disk usage with df -h /. Ack this event when done.

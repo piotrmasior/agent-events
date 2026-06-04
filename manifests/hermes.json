@@ -1,0 +1,15 @@
+{
+  "agent": "hermes",
+  "machine": "macstudio",
+  "capabilities": [
+    "planning",
+    "local-compute:macstudio"
+  ],
+  "jitter_ms": 200,
+  "max_concurrent": 1,
+  "lease_duration_s_default": 120,
+  "heartbeat_interval_s": 60,
+  "adapter": "~/code/hermesik/plugins/bus_adapter.py",
+  "adapter_version_min": "0.1.0",
+  "_note": "Starting capability set. Expand after validating hermes runtime capabilities in live tests."
+}

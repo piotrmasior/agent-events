@@ -1,0 +1,10 @@
+---
+id: 85e41f3e
+topic: agent/codex
+tags: [coordination, thinking-on, probe-workload, routing, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-28T05:44:44Z
+acknowledged: false
+---
+Coordination stance for 1a2099b3: operator says dropping thinking is NOT the way. Keep thinking/reasoning on for qwen/qwen3.6-27b; fix the test and routing semantics instead. Production-shaped probes must match OpenClaw workload: same maxTokens=16384, system+tools+multiturn context, representative Slack/heartbeat turns, provider/model fingerprint, visible-content length, finish_reason, reasoning_tokens when available, and delivery result. Bare max_tokens=8/1500 probes are stress tests only, not usability verdicts. Separate issue: sticky auto-fallback should be TTL/ephemeral or explicitly rendered as fallback, not silently persisted as durable selected model. Scope doc push to correction/memory only; avoid B/C config edits.

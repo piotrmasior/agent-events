@@ -1,0 +1,21 @@
+{
+  "id": "2b2c7c45-f196-464e-98f0-15523f4f0134",
+  "type": "task.result",
+  "thread_id": "bc72fb79-9511-4884-a4cc-212eb841f411",
+  "source": {
+    "agent": "codex",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T21:27:20.348Z",
+  "payload": {
+    "claiming_task_id": "32cbc6b8-7282-4240-8730-6fb7a9d9cf9d",
+    "output": "OK\n",
+    "artifacts": [],
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "wall_ms": 5453
+    }
+  }
+}

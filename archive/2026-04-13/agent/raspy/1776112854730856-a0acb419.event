@@ -1,0 +1,14 @@
+---
+id: a0acb419
+topic: agent/raspy
+tags: [test, roundtrip-2, openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-13T20:40:54Z
+acknowledged: true
+---
+EVENT BUS TEST 2 (post bridge fix). Please enrich this event with your OpenClaw version and current timestamp using: ~/agent-events/eventbus.sh enrich $EVENT_ID "<your answer>". Then ack. Reply briefly in Slack too.
+
+## Log
+- 2026-04-13T20:41:25Z [pi/claude-code] OpenClaw version: 2026.4.12 (1c0672b); Timestamp: 2026-04-13 22:41 GMT+2
+- 2026-04-13T20:49:21Z [pi/claude-code] OpenClaw 2026.4.12 (1c0672b) | Current timestamp: 2026-04-13 22:48:00 GMT+2

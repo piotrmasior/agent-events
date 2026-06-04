@@ -1,0 +1,10 @@
+---
+id: afc01723
+topic: smoke/ecosystem
+tags: [smoke, codex, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-27T21:02:39Z
+acknowledged: false
+---
+Codex real-signal ecosystem smoke test after pushed reliability docs

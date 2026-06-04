@@ -1,0 +1,236 @@
+---
+id: 13d3a40f
+topic: agent/raspy
+tags: [dashboard, feature, openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-13T21:14:08Z
+acknowledged: false
+---
+Improve ~/agent-activity/dashboard.html + app.py on this Pi. Full spec: https://github.com/piotrmasior/raspberry_openclaw/blob/main/docs/superpowers/specs/2026-04-13-dashboard-improvements-design.md
+
+THREE DELIVERABLES:
+
+=== 1. NEW /api/health endpoint in ~/agent-activity/app.py ===
+
+Add this handler (uses stdlib urllib, no new deps). Keep all existing handlers intact:
+
+```python
+import urllib.request
+from pathlib import Path
+
+@app.get("/api/health")
+async def health():
+    def probe(url, timeout=5.0):
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as r:
+                return json.loads(r.read().decode())
+        except Exception as e:
+            return {"error": str(e)[:200]}
+    rag = probe("http://192.168.0.153:1235/health")
+    llm = probe("http://192.168.0.153:1234/health")
+    last_ingest = None
+    try:
+        p = Path.home() / "rag-store" / "last_ingest.txt"
+        if p.exists():
+            last_ingest = p.read_text().strip()
+    except Exception:
+        pass
+    return {"rag": rag, "llm": llm, "last_ingest": last_ingest}
+```
+
+Response shape: {"rag":{...}|{"error":...}, "llm":{...}|{"error":...}, "last_ingest":"..."|null}
+
+=== 2. TASK QUEUE SEARCH/FILTER/SORT in ~/agent-activity/dashboard.html ===
+
+A) Replace the h3 header "<h3>Task Queue</h3>" inside div.table-wrap with this block:
+
+```html
+<div class="task-header" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+  <h3 style="margin:0">Task Queue <span id="taskCount" style="color:var(--text-dim);font-weight:400;font-size:12px"></span></h3>
+  <input id="taskSearch" type="search" placeholder="Search…" style="flex:1;min-width:160px;background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:6px;font-size:13px">
+  <select id="taskStatusFilter" style="background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:6px;font-size:13px">
+    <option value="">All statuses</option>
+    <option value="pending">Pending</option>
+    <option value="in-progress">In progress</option>
+    <option value="completed">Completed</option>
+    <option value="failed">Failed</option>
+  </select>
+  <select id="taskTargetFilter" style="background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:6px;font-size:13px"><option value="">All targets</option></select>
+  <select id="taskProjectFilter" style="background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:6px 10px;border-radius:6px;font-size:13px"><option value="">All projects</option></select>
+  <button onclick="clearTaskFilters()" style="background:var(--surface2);color:var(--text-dim);border:1px solid var(--border);padding:6px 10px;border-radius:6px;font-size:12px;cursor:pointer">Clear</button>
+</div>
+```
+
+B) Replace the existing `renderTasks(tasks)` function with this state-driven machinery. Add it to the <script> section:
+
+```javascript
+var taskState = { all: [], filtered: [], search: "", statusFilter: "", targetFilter: "", projectFilter: "", sortKey: "task_updated_at", sortDesc: true };
+
+function populateFilterDropdown(id, values) {
+  var sel = document.getElementById(id);
+  var current = sel.value;
+  var firstLabel = sel.options[0].text;
+  var opts = ['<option value="">' + firstLabel + '</option>'];
+  values.forEach(function(v){ opts.push('<option value="' + v + '">' + v + '</option>'); });
+  sel.innerHTML = opts.join('');
+  if (Array.from(sel.options).some(function(o){return o.value===current})) sel.value = current;
+}
+
+function applyTaskFilters() {
+  var q = taskState.search.trim().toLowerCase();
+  var sf = taskState.statusFilter, tf = taskState.targetFilter, pf = taskState.projectFilter;
+  taskState.filtered = taskState.all.filter(function(t){
+    if (sf && (t.task_status || 'pending').toLowerCase() !== sf) return false;
+    if (tf && (t.task_target || '') !== tf) return false;
+    if (pf && (t.project || '') !== pf) return false;
+    if (q) {
+      var hay = ((t.detail || '') + ' ' + (t.project || '') + ' ' + (t.task_target || '') + ' ' + (t.task_id || '')).toLowerCase();
+      if (hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  });
+  var k = taskState.sortKey, desc = taskState.sortDesc;
+  taskState.filtered.sort(function(a,b){
+    var av = (a[k] || '').toString(), bv = (b[k] || '').toString();
+    return desc ? (av < bv ? 1 : av > bv ? -1 : 0) : (av < bv ? -1 : av > bv ? 1 : 0);
+  });
+  renderTasks();
+}
+
+function renderTasks() {
+  var el = document.getElementById('taskTable');
+  var count = document.getElementById('taskCount');
+  count.textContent = '(' + taskState.filtered.length + ' of ' + taskState.all.length + ')';
+  if (taskState.filtered.length === 0) { el.innerHTML = '<div class="empty">No matching tasks</div>'; return; }
+  function th(key, label) {
+    var arrow = taskState.sortKey === key ? (taskState.sortDesc ? ' ▼' : ' ▲') : '';
+    return '<th style="cursor:pointer" onclick="sortTasksBy(\'' + key + '\')">' + label + arrow + '</th>';
+  }
+  var h = '<table><thead><tr>' +
+    th('task_id', 'ID') + th('task_status', 'Status') + th('task_target', 'Target') +
+    th('project', 'Project') + th('detail', 'Description') + th('task_updated_at', 'Updated') +
+    '</tr></thead><tbody>';
+  taskState.filtered.forEach(function(t){
+    var st = (t.task_status || 'pending').toLowerCase();
+    var cls = st === 'completed' ? 'completed' : st === 'in-progress' ? 'in-progress' : st === 'failed' ? 'failed' : 'pending';
+    h += '<tr><td><code>' + (t.task_id || t.event_id || '').substring(0,8) + '</code></td>';
+    h += '<td><span class="badge ' + cls + '">' + st + '</span></td>';
+    h += '<td>' + (t.task_target || '-') + '</td><td>' + (t.project || '-') + '</td>';
+    h += '<td>' + (t.detail || '').substring(0,80) + '</td>';
+    h += '<td>' + (t.task_updated_at || '').substring(0,16) + '</td></tr>';
+  });
+  h += '</tbody></table>';
+  el.innerHTML = h;
+}
+
+function sortTasksBy(key) {
+  if (taskState.sortKey === key) { taskState.sortDesc = !taskState.sortDesc; }
+  else { taskState.sortKey = key; taskState.sortDesc = true; }
+  applyTaskFilters();
+}
+
+function clearTaskFilters() {
+  taskState.search = ""; taskState.statusFilter = ""; taskState.targetFilter = ""; taskState.projectFilter = "";
+  document.getElementById('taskSearch').value = "";
+  document.getElementById('taskStatusFilter').value = "";
+  document.getElementById('taskTargetFilter').value = "";
+  document.getElementById('taskProjectFilter').value = "";
+  applyTaskFilters();
+}
+
+var searchDebounce = null;
+document.getElementById('taskSearch').addEventListener('input', function(e){
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(function(){ taskState.search = e.target.value; applyTaskFilters(); }, 150);
+});
+document.getElementById('taskStatusFilter').addEventListener('change', function(e){ taskState.statusFilter = e.target.value; applyTaskFilters(); });
+document.getElementById('taskTargetFilter').addEventListener('change', function(e){ taskState.targetFilter = e.target.value; applyTaskFilters(); });
+document.getElementById('taskProjectFilter').addEventListener('change', function(e){ taskState.projectFilter = e.target.value; applyTaskFilters(); });
+```
+
+C) In the existing `refresh()` function, REPLACE the line `renderTasks(tasks);` with:
+
+```javascript
+taskState.all = tasks || [];
+var targets = Array.from(new Set(taskState.all.map(function(t){return t.task_target}).filter(Boolean))).sort();
+var projects = Array.from(new Set(taskState.all.map(function(t){return t.project}).filter(Boolean))).sort();
+populateFilterDropdown('taskTargetFilter', targets);
+populateFilterDropdown('taskProjectFilter', projects);
+applyTaskFilters();
+```
+
+D) Inside `renderAgentChart`, ADD an `onClick` handler in the Chart.js `options` block:
+
+```javascript
+onClick: function(evt, elements) {
+  if (elements.length > 0) {
+    var label = this.data.labels[elements[0].index];
+    taskState.targetFilter = label;
+    document.getElementById('taskTargetFilter').value = label;
+  } else {
+    taskState.targetFilter = "";
+    document.getElementById('taskTargetFilter').value = "";
+  }
+  applyTaskFilters();
+}
+```
+
+E) Same pattern in `renderProjectChart`, but set `taskState.projectFilter` and `document.getElementById('taskProjectFilter').value`.
+
+=== 3. REPLACE checkSystemHealth FUNCTION BODY ===
+
+Replace the existing `checkSystemHealth` function with this (hits /api/health instead of the two backends directly, avoiding CORS):
+
+```javascript
+async function checkSystemHealth() {
+  try {
+    var r = await fetch('/api/health', {signal: AbortSignal.timeout(8000)});
+    var d = await r.json();
+    if (d.rag && !d.rag.error) {
+      document.getElementById('healthRag').innerHTML = '<span style="color:var(--green)">●</span> RAG: <strong>' + d.rag.known_docs + ' docs</strong> <span style="color:var(--text-dim)">(' + d.rag.documents_table_rows + ' rows)</span>';
+    } else {
+      document.getElementById('healthRag').innerHTML = '<span style="color:var(--red)">●</span> RAG: <strong>offline</strong>';
+    }
+    if (d.llm && !d.llm.error) {
+      var memPct = d.llm.memory && d.llm.memory.usage_percent ? d.llm.memory.usage_percent.toFixed(0) + '%' : '?';
+      var n = d.llm.models_loaded !== undefined ? d.llm.models_loaded : '?';
+      document.getElementById('healthLlm').innerHTML = '<span style="color:var(--green)">●</span> LLM: <strong>' + n + ' models</strong> <span style="color:var(--text-dim)">(' + memPct + ' RAM)</span>';
+    } else {
+      document.getElementById('healthLlm').innerHTML = '<span style="color:var(--red)">●</span> LLM: <strong>offline</strong>';
+    }
+    if (d.last_ingest) {
+      document.getElementById('healthIngest').innerHTML = '🕐 Ingest: ' + d.last_ingest;
+    } else {
+      document.getElementById('healthIngest').innerHTML = '<span style="color:var(--text-dim)">🕐 Ingest: unknown</span>';
+    }
+  } catch (e) {
+    document.getElementById('healthRag').innerHTML = '<span style="color:var(--red)">●</span> RAG: <strong>unreachable</strong>';
+    document.getElementById('healthLlm').innerHTML = '<span style="color:var(--red)">●</span> LLM: <strong>unreachable</strong>';
+    document.getElementById('healthIngest').innerHTML = '<span style="color:var(--text-dim)">🕐 Ingest: unknown</span>';
+  }
+}
+```
+
+=== RESTART THE DASHBOARD SERVER ===
+
+The uvicorn process (PID ~12178) runs as a bare nohup, not via the systemd unit (which is dead). Restart with:
+
+```bash
+pkill -f 'uvicorn app:app.*8080'
+sleep 1
+cd ~/agent-activity && nohup /usr/bin/python3 -m uvicorn app:app --host 0.0.0.0 --port 8080 > /tmp/dashboard.log 2>&1 &
+disown
+sleep 2
+curl -s http://localhost:8080/api/health | head -10
+```
+
+=== SANITY CHECKS BEFORE YOU CALL IT DONE ===
+
+1. `curl -s http://localhost:8080/api/health` returns a JSON body with rag.known_docs as a number AND llm.models_loaded as a number AND last_ingest as an ISO timestamp from today.
+2. Open http://192.168.0.195:8080/dashboard.html in a mental model: search box is visible, status/target/project dropdowns are visible, task count badge shows "(N of M)".
+3. No JavaScript errors in the browser console (you can tail /tmp/dashboard.log for uvicorn errors, but browser errors are invisible to you — trust the static spec review).
+
+=== WHEN DONE ===
+
+Enrich this event with a summary of (a) what you changed, (b) curl /api/health output from the new endpoint, (c) any issues you hit. Then ack. The delegator is waiting on the event bus (no slack polling), so the enrichment IS the completion signal.

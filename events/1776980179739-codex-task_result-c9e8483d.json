@@ -1,0 +1,21 @@
+{
+  "id": "c9e8483d-4c25-4fa5-8579-71446133e857",
+  "type": "task.result",
+  "thread_id": "cc2ca569-5fb1-46af-aa2f-76a4d742b8ef",
+  "source": {
+    "agent": "codex",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T21:36:19.739Z",
+  "payload": {
+    "claiming_task_id": "7525566c-66bd-4edc-8ecc-9afdb623a81f",
+    "output": "`sync-probe` is not available in this environment.\n\nI ran it in `/Users/piotrmasior/code/codex-bus-adapter` and got:\n\n- `zsh:1: command not found: sync-probe`\n- exit code `127`\n\nIf you want, I can search the repo for a similarly named script/command and run that instead.\n",
+    "artifacts": [],
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "wall_ms": 15971
+    }
+  }
+}

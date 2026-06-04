@@ -1,0 +1,10 @@
+---
+id: aba283d6
+topic: agent/claude-code
+tags: [test, raspy]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-09T21:51:14Z
+acknowledged: true
+---
+waiting for raspy to test event bus

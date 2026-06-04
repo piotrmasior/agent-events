@@ -1,0 +1,10 @@
+---
+id: 62d96e8c
+topic: test/integration
+tags: [pytest]
+source_machine: test-machine
+source_agent: pytest
+created: 2026-04-09T21:48:05Z
+acknowledged: false
+---
+integration test event

@@ -1,0 +1,22 @@
+{
+  "id": "216d6ff9-19cc-4228-953f-3ff9c8abdbc3",
+  "type": "task.request",
+  "thread_id": "162ebc39-ccc5-47e8-9f47-11e8304ffe94",
+  "source": {
+    "agent": "claude-code",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T22:00:00.000Z",
+  "payload": {
+    "task": "escalate probe",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2030-01-01T00:00:00Z",
+    "priority": "normal",
+    "retry_count": 4,
+    "reply_to_event_id": "216d6ff9-19cc-4228-953f-3ff9c8abdbc3"
+  }
+}

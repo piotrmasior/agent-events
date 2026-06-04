@@ -1,0 +1,16 @@
+{
+  "id": "ac9e9183-4d90-4904-a1b6-e6e587ac2a8d",
+  "type": "task.progress",
+  "thread_id": "5bacfa8a-87e1-444b-83ae-cf9f6c23ef87",
+  "source": {
+    "agent": "hermes",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:36:27.076Z",
+  "payload": {
+    "claiming_task_id": "a83760cf-ec41-4c82-9e9c-089d6ac517da",
+    "percent": 10,
+    "note": "hermes working"
+  }
+}

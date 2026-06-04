@@ -1,0 +1,115 @@
+[bridge] Starting on pi, polling every 5s
+[bridge] Table: agent-events in eu-central-1
+[bridge] Events dir: /home/pmasior/agent-events/events
+[bridge] No state found, re-syncing last 1h
+[bridge] Synced: b0e918fc -> test/integration
+[bridge] Synced: 62d96e8c -> test/integration
+[bridge] Synced: 66dbb68c -> test/integration
+[bridge] Synced: 3b6b0c85 -> test/integration
+[bridge] Synced: 861e3780 -> test/integration
+[bridge] Synced: 509ed912 -> test/integration
+[bridge] Synced: 60413ee8 -> test/integration
+[bridge] Synced: 1fe6eb26 -> test/integration
+[bridge] Synced: 26365311 -> test/integration
+[bridge] Synced: 3265662a -> test/integration
+[bridge] Synced: 2c42b3a3 -> project/test/smoke
+[bridge] Synced: d990162a -> project/integration/test
+[bridge] Synced: 57960c1a -> project/integration/test
+[bridge] Synced: a1b8b778 -> project/integration/test
+[bridge] Synced: 6cdabbff -> project/integration/test
+[bridge] Synced: 12b23828 -> project/integration/test
+[bridge] Synced: e4b7055d -> project/integration/sub
+[bridge] Synced: 80957df7 -> project/integration/test
+[bridge] Synced: 21effee3 -> project/integration/sub
+[bridge] Synced: cdc7dfcd -> test/integration
+[bridge] Synced: ae68763b -> project/integration/test
+[bridge] Synced: f51fe677 -> project/integration/sub
+[bridge] Synced: 60df4c19 -> machine/macstudio/health
+[bridge] Synced: aba283d6 -> agent/claude-code
+
+[bridge] Shutting down (signal 15)
+[bridge] Stopped.
+[bridge] Starting on pi, polling every 5s
+[bridge] Table: agent-events in eu-central-1
+[bridge] Events dir: /home/pmasior/agent-events/events
+[bridge] Synced: f01f4b2e -> agent/raspy
+[bridge] Synced: fd663aac -> agent/raspy
+[bridge] Synced: 7ed5c5ed -> agent/raspy
+[bridge] Synced: fe9e24b2 -> agent/raspy
+[bridge] Synced: bee7eff0 -> agent/raspy
+[bridge] Synced: 256fb663 -> agent/raspy
+[bridge] Synced: ea86e0ad -> agent/raspy
+
+[bridge] Shutting down (signal 15)
+[bridge] Stopped.
+[bridge] Starting on pi, polling every 5s
+[bridge] Table: agent-events in eu-central-1
+[bridge] Events dir: /home/pmasior/agent-events/events
+[bridge] Synced: a0acb419 -> agent/raspy
+
+[bridge] Shutting down (signal 15)
+[bridge] Stopped.
+[bridge] Starting on pi, polling every 5s
+[bridge] Table: agent-events in eu-central-1
+[bridge] Events dir: /home/pmasior/agent-events/events
+[bridge] Synced: c8e76880 -> agent/raspy
+[bridge] Updated enrichment: c8e76880 (+1 entries)
+[bridge] Synced: e46cce7c -> agent/raspy
+[bridge] Synced: bce2b341 -> agent/raspy
+[bridge] Updated enrichment: bce2b341 (+1 entries)
+[bridge] Synced: 13d3a40f -> agent/raspy
+[bridge] Synced: 28cecbfb -> agent/raspy
+[bridge] Synced: 1ff29b28 -> agent/raspy
+[bridge] Synced: 0ea8706f -> agent/raspy
+[bridge] Updated enrichment: 0ea8706f (+1 entries)
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on device
+[bridge] Unexpected error: [Errno 28] No space left on devic[bridge] Starting on pi, polling every 5s
+[bridge] Table: agent-events in eu-central-1
+[bridge] Events dir: /home/pmasior/agent-events/events
+[bridge] Synced: 361df508 -> test/integration
+[bridge] Synced: fc9033c4 -> test/integration
+[bridge] Synced: afc01723 -> smoke/ecosystem
+[bridge] Synced: 96d615a5 -> test/integration
+[bridge] Synced: 9f66b168 -> agent/claude-code
+[bridge] Synced: 2cd928f7 -> agent/claude-code
+[bridge] Synced: 32cdbc7a -> agent/claude-code
+[bridge] Synced: c843f75f -> agent/claude-code
+[bridge] Updated enrichment: c843f75f (+1 entries)
+[bridge] Synced: d8dc3872 -> agent/claude-code
+[bridge] Synced: 69c84b85 -> agent/claude-code
+[bridge] Synced: 6d27d77b -> agent/codex
+[bridge] Updated enrichment: 69c84b85 (+1 entries)
+[bridge] Updated enrichment: 69c84b85 (+1 entries)
+[bridge] Synced: 56088537 -> agent/claude-code
+[bridge] Updated enrichment: 56088537 (+1 entries)
+[bridge] Updated enrichment: 56088537 (+1 entries)
+[bridge] Synced: 1a2099b3 -> agent/claude-code
+[bridge] Synced: 85e41f3e -> agent/codex
+[bridge] Updated enrichment: 1a2099b3 (+1 entries)
+[bridge] DynamoDB query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"
+[bridge] DynamoDB modified query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"
+[bridge] DynamoDB modified query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"
+[bridge] DynamoDB modified query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"
+[bridge] DynamoDB query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"
+[bridge] DynamoDB modified query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"
+[bridge] DynamoDB query failed: Could not connect to the endpoint URL: "https://dynamodb.eu-central-1.amazonaws.com/"

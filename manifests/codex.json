@@ -1,0 +1,16 @@
+{
+  "agent": "codex",
+  "machine": "macstudio",
+  "capabilities": [
+    "code-review",
+    "long-context-analysis",
+    "planning",
+    "local-compute:macstudio"
+  ],
+  "jitter_ms": 100,
+  "max_concurrent": 2,
+  "lease_duration_s_default": 120,
+  "heartbeat_interval_s": 60,
+  "adapter": "~/code/codex-bus-adapter/adapter.py",
+  "adapter_version_min": "0.1.0"
+}

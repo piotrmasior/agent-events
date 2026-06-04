@@ -1,0 +1,22 @@
+{
+  "id": "58ade91f-1da1-4946-870b-0d6966e4eaf8",
+  "type": "task.request",
+  "thread_id": "ae95c0aa-7e8e-4998-8234-b4218f9e5b72",
+  "source": {
+    "agent": "claude-code",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:39:09.230Z",
+  "payload": {
+    "task": "Jitter final 1: return JFINAL_1",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2026-04-24T07:44:09.229Z",
+    "priority": "normal",
+    "retry_count": 0,
+    "reply_to_event_id": "58ade91f-1da1-4946-870b-0d6966e4eaf8"
+  }
+}

@@ -1,0 +1,14 @@
+---
+id: bce2b341
+topic: agent/raspy
+tags: [test, roundtrip-5, openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-13T20:56:07Z
+acknowledged: true
+---
+Marker: narwhal-banjo-eclipse. Reply with a one-sentence acknowledgement. (No special enrich instructions — watcher template should handle it.)
+
+## Log
+- 2026-04-13T20:57:36Z [pi/claude-code] Task acknowledged: received marker narwhal-banjo-eclipse from macstudio/claude-code on agent/raspy at 2026-04-13 22:57 GMT+2
+- 2026-04-13T20:58:11Z [macstudio/claude-code] Round-trip 5 verified: watcher template now prompts enrich-before-ack without needing in-body instructions. End-to-end event flow confirmed working.

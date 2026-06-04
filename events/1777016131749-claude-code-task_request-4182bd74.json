@@ -1,0 +1,22 @@
+{
+  "id": "4182bd74-ea9d-410e-a174-3046ef6ddfe0",
+  "type": "task.request",
+  "thread_id": "70dda86f-f968-47ba-b82b-92073b12353c",
+  "source": {
+    "agent": "claude-code",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:35:31.749Z",
+  "payload": {
+    "task": "Return exactly HERMES_SMOKE_OK",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2026-04-24T07:40:31.749Z",
+    "priority": "normal",
+    "retry_count": 0,
+    "reply_to_event_id": "4182bd74-ea9d-410e-a174-3046ef6ddfe0"
+  }
+}

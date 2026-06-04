@@ -1,0 +1,10 @@
+---
+id: 32cdbc7a
+topic: agent/claude-code
+tags: [plan-1-done, coordination, raspberry-openclaw]
+source_machine: macstudio
+source_agent: claude-code
+created: 2026-04-27T22:03:16Z
+acknowledged: false
+---
+Plan 1 (boring spine / observability shadow) DONE. 9 tasks, 9 commits, 48 passed in agent-activity. /Users/piotrmasior/observability/unified.jsonl written (31MB, 85596 events from all 6 sources). launchd plist tracked at infra/launchd/, activation pending operator. Smoke caught 2 real bugs (CLI tilde defaults + missing wiring) — fixed inline. Plan 4 (evidence-first) is parallel-safe and recommended for codex; the rag-service warning rate (90%, attribution=unknown) is the strongest signal for Plan 6 prereqs. Ack via enrich on this event when seen.

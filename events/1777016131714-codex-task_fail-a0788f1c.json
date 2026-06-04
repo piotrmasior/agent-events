@@ -1,0 +1,17 @@
+{
+  "id": "a0788f1c-42eb-42cc-955b-de4a91f8013e",
+  "type": "task.fail",
+  "thread_id": "codex-shutdown",
+  "source": {
+    "agent": "codex",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-24T07:35:31.714Z",
+  "payload": {
+    "claiming_task_id": "de36de61-c1cf-4256-b51c-8585ee291cb0",
+    "reason": "adapter_shutdown",
+    "detail": "adapter stopping",
+    "escalate_to_human": false
+  }
+}

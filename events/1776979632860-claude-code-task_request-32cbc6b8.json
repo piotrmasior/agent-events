@@ -1,0 +1,22 @@
+{
+  "id": "32cbc6b8-7282-4240-8730-6fb7a9d9cf9d",
+  "type": "task.request",
+  "thread_id": "bc72fb79-9511-4884-a4cc-212eb841f411",
+  "source": {
+    "agent": "claude-code",
+    "machine": "macstudio",
+    "session_id": null
+  },
+  "created_at": "2026-04-23T21:27:12.860Z",
+  "payload": {
+    "task": "return the string OK",
+    "capabilities": [
+      "planning"
+    ],
+    "context": {},
+    "deadline": "2026-04-23T21:32:12.860Z",
+    "priority": "normal",
+    "retry_count": 0,
+    "reply_to_event_id": "32cbc6b8-7282-4240-8730-6fb7a9d9cf9d"
+  }
+}
