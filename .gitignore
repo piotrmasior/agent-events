@@ -1,0 +1,8 @@
+# Runtime data files
+*.bridge-state
+*.bridge-heartbeat
+__pycache__/
+*.pyc
+
+# Heartbeat event files synced by raspi-bridge - auto-generated noise
+events/
