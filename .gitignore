@@ -6,3 +6,8 @@ __pycache__/
 
 # Heartbeat event files synced by raspi-bridge - auto-generated noise
 events/
+
+# Bridge runtime state
+.bridge-state
+.bridge-heartbeat
+.raspy-watcher-heartbeat
